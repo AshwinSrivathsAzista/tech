@@ -13,10 +13,12 @@
 - there is a primary coulun that other columns are dependent on.
 
 # 1st normal form
+- no data redundancy
 - columns that have multiple values must be broken down such that each column has one and only one value
 - Ensures each attribute (column) contains only atomic (indivisible) values and eliminates repeating groups of data
 
 # 2nd normal form
+- no partial dependency
 - all non primary attribute should be fully dependent on the prime attribute
 - in case of composite key present, the non primary attributes must be fully dependent on all the composite key columns
 

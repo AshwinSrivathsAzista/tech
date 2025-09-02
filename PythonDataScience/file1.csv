@@ -1,0 +1,13 @@
+,Vol,Rev,Exp,Sector,EmpCnt,HQ,MNC,StockID,GST,Start Date,Taxpaid
+Kolkata_FMCG,925,874.4,676,Pub,1379,Kol,0,KFMC,Goods,Jan 1920,29.76
+NCR_Leagles,931,863.5,605,Pub,1935,NCR,0,NCRL,Services,Feb 1960,38.78
+Bangalore_Systems,900,881.6,650,Gov,1361,Blr,0,BSYS,Services,Apr 1950,34.74
+Chennai_Chemicals,966,863.2,608,Pub,1656,Che,1,CHEM,Goods,Aug 1928,38.28
+Indi_Services,992,733.0,633,Gov,13023,NCR,0,INDI,Services,Mar 1920,15.0
+Chennai_Shipping,899,821.0,899,Pub,899,Che,1,SHIP,Goods,Nov 1930,0.0
+Eastern_Estates,945,834.23,789,Prvt,1873,Kol,1,EEST,Goods,Jan 1994,6.78
+Central_Services,934,824.0,689,Gov,1573,NCR,1,CSRV,Services,Jun 1974,20.25
+Deccan_Sporting,931,839.8,615,Prvt,154,Hyd,1,SPRT,Services,Mar 1943,33.72
+Bangalore_Breweries,966,875.0,674,Prvt,119,Blr,1,BREW,Goods,Oct 1971,19.65
+Bombay_Finance,954,917.0,665,Pub,1443,Mum,0,BFIN,Services,Apr 1925,37.8
+NCR_Infra,921,843.5,615,Prvt,1635,NCR,0,NCIN,Services,Feb 1920,34.27
