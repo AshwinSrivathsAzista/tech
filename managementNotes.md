@@ -1,0 +1,11 @@
+- SRN: PES2PGE25DS220
+- in terminal type "jupyter notebook"
+- jupyter file name => f'{srnNo}_{systemNo}.ipynb'
+- submission should be in .html file and not .ipynb  
+    - menu > download as html
+    - upload the same using drop box link
+- ▪ Portal URL : 192.168.3.35/Assessment
+- ▪ Your USN (Username) : Your SRN
+- ▪ Password : bmka01121998    (A combination of the first four letters of your mother’s name and your date of birth DDMMYYYY)
+- Your Application Id is: 20252003101
+- Your Login Id is:PES2202502853
