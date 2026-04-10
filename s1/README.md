@@ -10,3 +10,12 @@
 
 # questions
 - does df['test'].median() take into account na values
+
+
+# Notes
+- 
+
+
+
+# python 
+- sudo apt install python3-statsmodels
