@@ -221,10 +221,33 @@ public class T {
 
 
 # exceptions
-- TODO
-
-
-
+- have a polymorphic catch for user facing method like main.
+- do not have polymorphic catch for non user facing methods.
+    - the catch block is to handle error. Only have catch errors that you can handle.
+    - code failing is bad
+    - code failing is betterbut than code not failing and not performing its job
+    - You should not have empty catch
+- In catch block
+    - log stack trace to file
+    - print generic message to customer
+- In finally code block
+    - release 3rd party resources and cleanup
+    - finally is executed no matter what
+    - returning in finally causes silent failure NEVER RETURN IN FINALLY
+        - finally return is supersedes the return in normal code block
+        - finally return is supersedes the return in catch block
+        - finally return is supersedes the thrown exception
+    - FINALLY IS USED ONLY 3RD PARTY RESOURCES IS USED IN TRY AND IT NEEDS TO BE RELEASED
+    - If there is exception in finally the finally exception is the only exception that is thrown
+    - There can only be one reason for returning
+    - only if System.exit(0); is executed then finally is not executed
+- throw <Throwable reference>
+- Forcing caller to catch exception
+    - adding the throws clause in the method header
+    - this is done for checked exceptions where we dont want to blame the invoker and the user has given bad inputs
+    - compiler compels the invoker of the method hast to 
+     - HANDLE: catch this exception 
+     - DUCK: throws the same exception
 
 
 
@@ -265,4 +288,6 @@ p.
 # h
 
 
-# e
+# TODO:
+- retrive the questions list and solve it
+- 
