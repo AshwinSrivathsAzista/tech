@@ -54,7 +54,7 @@
 			<artifactId>ashwins-test-jar</artifactId>
 			<version>1.0.0</version>
 			<scope>system</scope>
-			<systemPath>/home/ashwin/Desktop/myJarFiles/myJar.jar</systemPath>
+			<systemPath>/home/ashwin/Desktop/tech/tech/java_core/ecplise/myJarFiles/myJar.jar</systemPath>
 		</dependency>
 		
 		
@@ -64,6 +64,16 @@
 		    <artifactId>maven-compiler-plugin</artifactId>
 		    <version>3.15.0</version>
 		    <scope>compile</scope>
+		</dependency>
+		
+		
+		
+		
+		<!-- test code coverage -->
+		<dependency>
+			<groupId>org.jacoco</groupId>
+			<artifactId>jacoco-maven-plugin</artifactId>
+			<version>0.8.12</version>
 		</dependency>
 
 	</dependencies>

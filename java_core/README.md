@@ -4,9 +4,10 @@
 
 ## Strings
 - StringBuilder is thread safe and mutable
-    - .append("abc")
-    - .reverse()
-    - .toString()
+  - StringBuilder sb = new StringBuilder("test sb");
+  - .append("abc")
+  - .reverse()
+  - .toString()
 - ALWAYS USE .equals(str) to compare strings
 
 
@@ -348,10 +349,23 @@ public class T {
 
 # junit
 - Used by developer to write test cases
+- maven-surefire-plugin is used to test only a subset of test cases per environment
+  - <plugin>
+    - <artifactId>maven-surefire-plugin</artifactId>
+      - <configuration>
+        - <groups>dev</groups> // the test cases that need to be executed
+        - <excludedGroups>QA</excludedGroups> // the test cases that should be excluded
+      - </configuration>
+    - </plugin>
+- Bae64.getDecoder().decode("encrypted pwd")
+  - when saving passwords, to ensure that anyone does not just see it and understand the password, it is encoded in base 64
+- if multiple reference variables are pointing to the same object then => assertSame
+- if multiple reference variables are pointing to multiple objects with the same content then => assertEquals
+- 
 
 
-
-import dependencies from 
+# collections
+- 
 
 
 

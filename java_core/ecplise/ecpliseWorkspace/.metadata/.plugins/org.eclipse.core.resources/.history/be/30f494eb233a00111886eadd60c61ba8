@@ -1,0 +1,13 @@
+package com.uis.mvn;
+
+import org.junit.Test;
+
+
+public class TestMvn {
+	
+	@Test
+	public void testTesting() {
+		System.out.println("testing testing using Junit///////////////////////////////////////");
+	}
+
+}
