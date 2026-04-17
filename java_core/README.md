@@ -57,7 +57,9 @@
 
 
 ### final modifier
-- 
+- a final class can not be extended
+- a final method can not be overridden
+- a final variable's value can not be changed
 
 
 
@@ -91,8 +93,19 @@ public class T {
 }
 
 
-# Inheritance
+# Inheritance and overriding
 - i don't use inheritance to reuse code
+- whatever the parent can do the child can do
+- overridden methods can widen access specifier (not reduce access specifier)
+  - private
+  - package
+  - protected
+  - public
+- only visible methods are inherited
+  - hance no question of overriding private methods but new method with same signature can be created
+- Covariance: return datatype can be changed to subtype while overriding 
+- any modifier can be used
+- overridden method can not throw more checked exceptions than the parent method
 
 
 
@@ -225,7 +238,7 @@ public class T {
 - do not have polymorphic catch for non user facing methods.
     - the catch block is to handle error. Only have catch errors that you can handle.
     - code failing is bad
-    - code failing is betterbut than code not failing and not performing its job
+    - code failing is better than code not failing and not performing its job
     - You should not have empty catch
 - In catch block
     - log stack trace to file
@@ -248,6 +261,101 @@ public class T {
     - compiler compels the invoker of the method hast to 
      - HANDLE: catch this exception 
      - DUCK: throws the same exception
+- checked Exceptions
+  - non runtime exceptions (all Throwables happens at runtime)
+  - runtime exceptions happen due to bad code
+  - checked exceptions are checked by the compiler
+    - if throws has been marked for the used checked exception
+    - if invoker handles it
+  - no checking by compiler for unchecked exceptions and developer is expected to change code
+  - checked exceptions represent business or environment failure that the user should correct
+  - 
+
+
+
+# ecplise
+- ctrl + " " => code complete
+- ctrl + 1 
+- source
+
+
+
+
+
+
+
+
+
+
+# java 8
+- Default: Keyword modifier added in java 8
+  - until java 8 any method added to an interfaces must be marked abstract
+  - Definition: A non-abstract method within an interface that includes a body, marked with the default keyword.
+  - Purpose: Enables interface evolution by providing a standard implementation that classes can inherit or override.
+    - If i have a interface and I want to enhance it and add a new abstract method, then all the 1000 classes that extends it will break
+    - this allows us to provide a dummy implementation in the interface that the class designer are expected to override
+    - static methods can also be added to interfaces now using default (static methods can not be marked abstract)
+  - Conflict Resolution: If a class implements multiple interfaces with the same default method signature, it must override the method to resolve the ambiguity.
+  - default methods cant be marked final in interfaces as it is expected that the class user overrides the method
+- Covariance: return datatype can be changed to subtype while overriding //introduced in jdk 5
+  - 
+
+
+
+
+
+# Maven
+- It is a build automation tool
+- while sharing b to b is recommended to share only .class file
+- zip of all .class files into one folder is called build 
+  - .jar => java archive => .class files
+  - .war => web archive =. .class files + Web Resources
+  - .ear => Enterprise Archive
+- library: collection of .jar files
+- GAV
+  - group id: organization that has built the framework
+  - artifact id: project or jar name
+  - version: 5.3.12 => MajorVersion.MinorVersion.BugFixes
+- Maven server or central repository or .m1 contains all the libraries and dependencies in one place
+- .m2 or local repository or our system takes the jar files from .m1
+- pom.xml captures all dependencies
+  - this is requested to the m1 repo
+  - the m1 repo responds with the relevant .jar files that is stored in the .m2 or local repo
+- dependency hierarchy is a tree of dependencies
+  - for every dependency we add, its dependencies are added creating a tree of dependencies
+  - exclusions allows us to exclude the dependency that we do not need
+- <scope> tag => when the dependency will be available
+  - compile (default): From compile time till execution
+  - runtime: only at runtime
+  - provided: Given by server/container - coming from docker container
+  - test: only for unit testing
+  - system: from local system (our .jar file that is not in m1 repo) (<systemPath> tag should be provided)
+- <properties> tag is used for version only
+  - define: <key>value</key> inside the property tag
+  - use: <version>${key}</version>
+- BOM stands for Bill Of Materials. A BOM is a special kind of POM that is used to control the versions of a project’s dependencies and provide a central place to define and update those versions. BOM provides the flexibility to add a dependency to our module without worrying about the version that we should depend on.
+- Transitive Dependencies
+  - Maven can discover the libraries that are needed by our own dependencies in our pom.xml and includes them automatically. There’s no limit to the number of dependency levels that the libraries are gathered from.
+  - The conflict here comes when 2 dependencies refer to different versions of a specific artifact. Which one will be included by Maven?
+  - The answer here is the “nearest definition”. This means that the version used will be the closest one to our project in the tree of dependencies. This is called dependency mediation.
+- parent pom
+  - contains all necessary dependencies
+  - child poms can inherit from the parent pom
+- mvn clean package
+- java -jar target/test-1.0.0.jar
+
+
+
+# junit
+- Used by developer to write test cases
+
+
+
+import dependencies from 
+
+
+
+
 
 
 
