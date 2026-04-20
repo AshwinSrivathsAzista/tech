@@ -278,6 +278,9 @@ public class T {
 - ctrl + " " => code complete
 - ctrl + 1 
 - source
+- workspace is a folder where all the projects are stored
+- First thing to do when eclipse is launched is create a new project => File->New->Project
+- 
 
 
 
@@ -365,8 +368,55 @@ public class T {
 
 
 # collections
-- 
+- a container of elements
+- interface Collections (behaviors)
+    - boolean add(Object e)
+    - boolean contains(Object e)
+    - boolean remove(Object e) => removes only the first occurrence of the element like this element
+    - int size()
+    - Iterator iterator() => retrieve one one element at a time
+    - clear() => collection becomes empty(all the elements are made to default values)
+    - boolean isEmpty()
+    - TWO COLLECTIONS OPERATIONS
+    - addAll(Collection c) => add all elements from the passed collection to the collection
+    - removeAll(Collection c) => all elements from the passed collection will be searched and removed
+    - retainAll(Collection c) => only elements from the passed collection will be retained in the collection
+    - boolean containsAll(Collection c) => checks if all elements from the passed collection is present in my collection or not
+    - Object[] toArray() => converts the collection to array
+- interface List extends Collections
+  - position backed ordered collection offering indexed access
+    - ordered implies that on inserting, the retrieval happens in a particular order
+  - allows duplicates
+  - Implementations
+    - ArrayList
+    - LinkedList
+    - CopyOnWriteList  
+  - ArrayList has super fast random access
+  - LinkedList has super fast insert and delete but slower random access
+- interface Set extends Collections
+  - no duplicates
+  - unordered and no position
+  - Implementations
+    - HashSet -  hashed bucket of nodes
+    - LinkedHashSet - linked hashed bucket of nodes
+    - TreeSet - balanced binary tree of nodes
 
+- interface Queue extends Collections
+  - Ordered retrieval
+  - Implementations
+    - LinkedList => IMPLEMENTS BOTH List and Queue interfaces
+    - PriorityQueue
+    - Dequeue
+    - BlockingQueue
+
+
+- interface Map (in parallel with Collections and does not extend it. It deals with elements and not element)
+  - container of entries (key value pair)
+  - Implementation
+    - HashMap
+    - LinkedHashMap
+    - TreeMap
+    - 
 
 
 
