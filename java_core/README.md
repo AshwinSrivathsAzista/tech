@@ -1165,7 +1165,7 @@ Collections revision
   - dec - decimal
     - salary dec(15,3) => total no of digits is 15 and there are 3 decimal places
   - integer
-  - datetime
+  - datetime 
     - YYYY-MM-DD HH:MI:SS
   - timestamp
     - used for system generated data and is a num of ms from a epoch time
@@ -1190,7 +1190,7 @@ Collections revision
 - null in database is the absence of a value and one null in the SQL world is not equal to another null
 
 - Constraints
-  - CREATE TABLE tmDatabase(slNo integer PRIMARY KEY, id char(12) UNIQUE NOT NULL, name varchar(200) NOT NULL, creationDate date);
+  - CREATE TABLE tmDatabase(slNo integer AUTO_INCREMENT PRIMARY KEY, id char(12) UNIQUE NOT NULL, name varchar(200) NOT NULL, creationDate date);
   - NOT NULL =>  mandatory to provide the value (null not allowed)
   - UNIQUE KEY 
     - value if given should unique within the table across all the rows (for that column) 
@@ -1263,6 +1263,11 @@ inner join - only common elements
   - CASCADE deletes rows that are referencing this record
 
 
+
+
+
+
+
 # important notes
 - when an int is added to a collection, auto boxing happens and the int value is stored in a Integer object
 - Whenever there is search favour Hashing
@@ -1302,15 +1307,99 @@ LIMIT StartIndex,numberOfRows
 
 - server in android application can push data to the client device where as a webapp server using http can not push data to the application
 
+<open tag>
+data
+</open tag>
+
+Web Session Management
+- user request -> web server checks jwt token cookie and requests for the generation of the resource -> web app generates the resource
+
+- JEE is a collection of libraries that are used to
+  - create dynamic resources 
+  - interact with data store (JDBC)
+  - consume resources created/exposed by other web applications  
+
+ 
+# serverlets
+ 
+class  
 
 
-2009 - 2016 native android
+- when a webserver receives a http request for a known mapped url pattern
+  - if it is the first request, then a new servlet object is created (singleton)
+  - the service method is called on this object and HttpRequest and HttpResponse objects are passed to this method (this method is called in a new thread of execution)
+  - this method internally calls the doXXX method like doGet based on the request type
+  - we are expected to override the doXXX methods in the HttpServlet class by extending it
+  - request.getParameter("param_name");
+  - response.getWriter.write("this the the response");
+  - init() method is called when the servlet object is created and destory is called when the application/webserver shutsdown
 
-2017 2018 => flutter / react native
 
-- yesterday
-- today
-- any blockers
+  - request.getSession(true) 
+    - unique per client
+    - it true is passed, (default value and need not be passed) then a new session is created if it does not exist (else return existing)
+    - if false is passed, null is returned if client not found else session is returned
+    - alive till timeout or session.invalidate() is explicitly called
+  - request.getRequestDispatcher("uri")
+    - call a new api 
+    - two methods can be called on the RequestDispacher object
+      - INCLUDE => rd.include(request, response)
+        - each of the servlet can write to the servlet
+        - sequential execution
+      - FORWARD
+        - only the last servlet can write to the response
+        - parallel execution
+
+- this.context
+  - one per application
+
+## date app with servlet
+- map /getDate URL pattern with the DateServlet class
+- make DateServlet class extend HttpServlet class 
+  - overide the doxxx methods 
+    - create a new date object and create a dynamic string with it
+    - PrintWriter pw = request.getWriter();
+    - pw.write(dynamicHtml);
+  - whenever a new http request comes
+    - new servlet object is created for the first request of the said URL pattern
+    - service method is called in a new thread of execution
+    - service method internally calls out doxxx method based on the line (request type - get, post, etc)
+    - our overidden doxxx method is excecuted 
+    
+
+
+
+
+
+# JSP 
+
+1.1
+- Java Server Pages
+  - serverside managed java web resource 
+  - same use case as servlets THEN WHY IS IT NEEDED? DEMERITS
+  
+- demerits of using servlets (why use jsp when servlets can be used for exactly the same functionality)
+  - servlet is HTML in java code 
+      - huge volume of HTML
+          - HTML is unessarly overhead of tags and unesarly voluminous
+  - most part of the HTML is constant and only a small portion is dynamic
+  - different developer maintenance who knows only HTML cant be done 
+  
+- unlike servlets the Date.jsp can directly be placed inside WebContent and is an unprotected resource and user can directly access it
+
+- <% 
+    request.getParameter("paramName");
+    out.println("data");
+ %>
+
+
+1.2 todo
+- lifecycle of a JSP
+  - 
+
+
+mid of jsp 2-2 
+
 
 
 # java io
@@ -1363,3 +1452,12 @@ LIMIT StartIndex,numberOfRows
 
   - anonymous inner class is used when i want only one object of a class and don't want to create a separate class file
   - method local inner class is used when i want multiple objects of a class but only inside a method and don't want to create a separate class file
+
+
+2009 - 2016 native android
+
+2017 2018 => flutter / react native
+
+- yesterday
+- today
+- any blockers
